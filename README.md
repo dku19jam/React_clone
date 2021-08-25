@@ -3,7 +3,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
-## 목표 : 8월 30일 전까지 마무리하기
+## 목표 : 9월 첫째주까지 마무리하기
 
 In the project directory, you can run:
 
