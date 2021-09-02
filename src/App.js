@@ -1,43 +1,36 @@
-import React from "react";
+import React,{useState} from "react";
+import PropTypes from "prop-types"
 
-function Food({name,picture}){
+class App extends React.Component{
 
-  return <div>
-    <h2>I like {name} </h2>
-    <img src = {picture} alt ={name}/>
-  </div>
-}
+  state ={
+    count: 0
+  };
+  add = () => {
+    this.setState(current => ({ count : current.count + 1}));
+  };
 
-function renderFood(dish){
-  return <Food name ={dish.name} picture={dish.image}/>
-}
+  minus = () =>{
+    this.setState(current => ({ count : current.count - 1}));
+  };
 
-const foodILike = [
-  {
-    id:1,
-    name : "Kimchi",
-    image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP._qLDMLMwi2F0m7bLAbWxTwHaHa%26pid%3DApi%26h%3D160&f=1"
-  },
-  {
-    id:2,
-    name : "pizza",
-    image : "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.hgCzy3QSABhfkvGLLB-8aQHaE7%26pid%3DApi%26h%3D160&f=1"
-  } 
-  ,
-  {
-    id:3,
-    name : "ramen",
-    image : "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.rgkdYIndDYG3Kxy9xK5lMAHaHa%26pid%3DApi%26h%3D160&f=1"
+  componentDidMount(){
+    console.log("component render");
   }
-
-]
-
-function App() {
-  return (<div> 
-    {foodILike.map(dish=>(
-      <Food key =  {dish.id} name = {dish.name} picture = {dish.image}/>))}
-    </div>
-    );
+  componentDidUpdate(){
+    console.log("updated");
+  }
+  componentWillUnmount(){
+    console.log("good bye");
+  }
+  render(){
+    console.log("render");
+    return <div>
+      <h1>The number is: {this.state.count}</h1>
+      <button onClick={this.add}>Add</button>
+      <button onClick={this.minus}>Minus</button>
+    </div>;
+  }
 }
 
 export default App;
